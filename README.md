@@ -17,3 +17,5 @@
 2. **Log in to Instapaper**, open the [extra page](http://www.instapaper.com/extras), right click on the bookmarklet and copy link
     - If not logged in, the copied bookmarklet won't work.
 3. Paste link content into InstapaperBookmark's settings (Safari -> Preferences -> Extensions)
+
+Note: if the button does not work immediately after this setup, try refresh the web page or restart Safari.
