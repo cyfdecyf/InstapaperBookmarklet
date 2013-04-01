@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Chen Yufei</string>
+	<key>Builder Version</key>
+	<string>8536.28.10</string>
+	<key>CFBundleDisplayName</key>
+	<string>InstapaperBookmark</string>
+	<key>CFBundleIdentifier</key>
+	<string>info.chenyufei.instapaperbookmark</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Global Page</key>
+		<string>global.html</string>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Command</key>
+				<string>send-to-instapaper</string>
+				<key>Identifier</key>
+				<string>instapaperbookmark</string>
+				<key>Image</key>
+				<string>Icon-64.png</string>
+				<key>Label</key>
+				<string>Instapaper</string>
+				<key>Palette Label</key>
+				<string>InstapaperBookmark</string>
+				<key>Tool Tip</key>
+				<string>Send to Instapaper</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>injected.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>Send current page to Instapaper using its bookmarklet</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://chenyufei.info/p/InstapaperBookmark/Update.plist</string>
+	<key>Website</key>
+	<string>https://github.com/cyfdecyf/InstapaperBookmark</string>
+</dict>
+</plist>
