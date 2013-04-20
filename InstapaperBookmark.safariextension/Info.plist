@@ -49,7 +49,7 @@
 		</dict>
 	</dict>
 	<key>Description</key>
-	<string>Send current page to Instapaper using its bookmarklet</string>
+	<string>Send web page to Instapaper using its bookmarklet</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
