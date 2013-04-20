@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "InstapaperBookmark",
+  "name": "InstapaperBookmarklet",
   "description": "Send web page to Instapaper using its bookmarklet",
   "version": "1.0",
 

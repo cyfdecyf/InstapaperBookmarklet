@@ -5,11 +5,11 @@
 	<key>Author</key>
 	<string>Chen Yufei</string>
 	<key>Builder Version</key>
-	<string>8536.28.10</string>
+	<string>8536.29.13</string>
 	<key>CFBundleDisplayName</key>
-	<string>InstapaperBookmark</string>
+	<string>InstapaperBookmarklet</string>
 	<key>CFBundleIdentifier</key>
-	<string>info.chenyufei.instapaperbookmark</string>
+	<string>info.chenyufei.instapaperbookmarklet</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
@@ -26,13 +26,13 @@
 				<key>Command</key>
 				<string>send-to-instapaper</string>
 				<key>Identifier</key>
-				<string>instapaperbookmark</string>
+				<string>InstapaperBookmarklet</string>
 				<key>Image</key>
 				<string>Icon-64.png</string>
 				<key>Label</key>
 				<string>Instapaper</string>
 				<key>Palette Label</key>
-				<string>InstapaperBookmark</string>
+				<string>InstapaperBookmarklet</string>
 				<key>Tool Tip</key>
 				<string>Send to Instapaper</string>
 			</dict>
@@ -63,8 +63,8 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://chenyufei.info/p/InstapaperBookmark/Update.plist</string>
+	<string>http://chenyufei.info/p/InstapaperBookmarklet/Update.plist</string>
 	<key>Website</key>
-	<string>https://github.com/cyfdecyf/InstapaperBookmark</string>
+	<string>https://github.com/cyfdecyf/InstapaperBookmarklet</string>
 </dict>
 </plist>
