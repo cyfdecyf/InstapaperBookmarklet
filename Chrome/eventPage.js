@@ -1,32 +1,61 @@
-function sendToInstapaper() {
-	var instapaper_url = "http://www.instapaper.com/u";
-	var newtab_url = "chrome://newtab/";
+var newtabURL = "chrome://newtab/";
+var unreadURL = "http://www.instapaper.com/u";
 
-	chrome.tabs.query({
-		active: true, windowId:
-		chrome.windows.WINDOW_ID_CURRENT
-	},
-	function(tabs) {
-		active_tab = tabs[0];
-		if (active_tab.url === newtab_url) {
-			chrome.tabs.update(null, {url: instapaper_url});
-		} else {
-			chrome.tabs.executeScript(null, {code: localStorage.bookmarklet});
-		}
-	});
+function openUnread(tab) {
+	if (tab) {
+		chrome.tabs.update(tab.id, {url: unreadURL});
+	} else {
+		chrome.tabs.create({url: unreadURL});
+	}
 }
 
 function openOptions() {
-	var options_url = chrome.extension.getURL("options.html");
-	chrome.tabs.create({url: options_url});
+	var optionsURL = chrome.extension.getURL("options.html");
+	chrome.tabs.create({url: optionsURL});
 }
 
-chrome.browserAction.onClicked.addListener(function(tab) {
-	if (localStorage.bookmarklet) {
-		sendToInstapaper();
-	} else {
-		openOptions();
+function sendToInstapaperCallback(tabs) {
+	var activeTab = tabs[0];
+	if (activeTab.url === newtabURL) {
+		openUnread(activeTab);
+		return;
 	}
+	if (isDoubleClick) {
+		openUnread(null);
+		return;
+	}
+	// wait some time to see if this is the 1st click in a double click
+	// execute the bookmarklet only if this is not a double click
+	setTimeout(function() {
+		if (isDoubleClick)
+			return;
+		chrome.tabs.executeScript(null, {code: localStorage.bookmarklet});
+	}, delayTime);
+}
+
+function sendToInstapaper() {
+	// get active tab
+	chrome.tabs.query({
+		active: true,
+		windowId: chrome.windows.WINDOW_ID_CURRENT
+	},
+	sendToInstapaperCallback);
+}
+
+var lastTime = new Date();
+lastTime.setFullYear(1970, 1, 1);
+var isDoubleClick = false;
+var delayTime = 500;
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+	if (!localStorage.bookmarklet) {
+		openOptions();
+		return;
+	}
+	var currentTime = new Date().getTime();
+	isDoubleClick = (currentTime - lastTime < delayTime) ? true : false;
+	lastTime = currentTime;
+	sendToInstapaper();
 });
 
 // Open options page upon install/update if bookmarklet not set.
