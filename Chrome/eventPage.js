@@ -2,7 +2,7 @@ var newtabURL = "chrome://newtab/";
 var unreadURL = "http://www.instapaper.com/u";
 
 function openUnread(tab) {
-	if (tab) {
+	if (tab.url === newtabURL) {
 		chrome.tabs.update(tab.id, {url: unreadURL});
 	} else {
 		chrome.tabs.create({url: unreadURL});
@@ -16,12 +16,8 @@ function openOptions() {
 
 function sendToInstapaperCallback(tabs) {
 	var activeTab = tabs[0];
-	if (activeTab.url === newtabURL) {
-		openUnread(activeTab);
-		return;
-	}
 	if (isDoubleClick) {
-		openUnread(null);
+		openUnread(activeTab);
 		return;
 	}
 	// wait some time to see if this is the 1st click in a double click
@@ -29,6 +25,10 @@ function sendToInstapaperCallback(tabs) {
 	setTimeout(function() {
 		if (isDoubleClick)
 			return;
+		if (activeTab.url === newtabURL) {
+			openUnread(activeTab);
+			return;
+		}
 		chrome.tabs.executeScript(null, {code: localStorage.bookmarklet});
 	}, delayTime);
 }
@@ -45,7 +45,7 @@ function sendToInstapaper() {
 var lastTime = new Date();
 lastTime.setFullYear(1970, 1, 1);
 var isDoubleClick = false;
-var delayTime = 500;
+var delayTime = 200;
 
 chrome.browserAction.onClicked.addListener(function(tab) {
 	if (!localStorage.bookmarklet) {
