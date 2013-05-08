@@ -20,6 +20,7 @@ function sendToInstapaper() {
 	setTimeout(function() {
 		if (isDoubleClick)
 			return;
+		// NOTE: file:// URL is also undefined here
 		if (activeTab.url === undefined) {
 			openURL(unreadURL);
 			return;
@@ -28,8 +29,7 @@ function sendToInstapaper() {
 	}, delayTime);
 }
 
-var lastTime = new Date();
-lastTime.setFullYear(1970, 1, 1);
+var lastTime = new Date(1970, 1, 1);
 var isDoubleClick = false;
 var delayTime = 200;
 

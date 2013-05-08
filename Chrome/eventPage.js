@@ -46,8 +46,7 @@ function sendToInstapaper() {
 	});
 }
 
-var lastTime = new Date();
-lastTime.setFullYear(1970, 1, 1);
+var lastTime = new Date(1970, 1, 1);
 var isDoubleClick = false;
 var delayTime = 200;
 
