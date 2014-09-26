@@ -1,5 +1,5 @@
 var bookmarklet = decodeBookmarklet(safari.extension.settings.bookmarklet);
-var unreadURL = "http://www.instapaper.com/u/";
+var unreadURL = "https://www.instapaper.com/u";
 var extrasURL = "http://www.instapaper.com/extras/";
 
 function settingsChanged(event) {
